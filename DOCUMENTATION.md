@@ -1,48 +1,65 @@
 # Technical Project Documentation
 
-This document provides a consolidated technical reference containing complete source codes and functional descriptions for the projects developed during the **Vault of Codes (VOC) Python Programming Internship**.
+> **Developer & Author:** Penugonda Manoj Mithra  
+> **Email:** penugondamanojmithra@gmail.com  
+> **Internship:** 1-Month Internship in Python Programming at [VaultofCodes.in](https://vaultofcodes.in)  
+> **Academic Context:** Developed by me at this formative stage of my undergraduate computer science academics to transition classroom theoretical principles into modular, industry-grade software applications.
 
 ---
 
 ## Table of Contents
 
 1. [Project 1: Personal Expense Tracker](#1-project-1-personal-expense-tracker)
-   - [Overview & Specifications](#11-overview--specifications)
-   - [Functional Description](#12-functional-description)
-   - [Complete Source Code](#13-complete-source-code)
+   - [Academic Context & Purpose](#11-academic-context--purpose)
+   - [Technical Specifications & Architecture](#12-technical-specifications--architecture)
+   - [Functional Description](#13-functional-description)
+   - [Complete Source Code](#14-complete-source-code)
 2. [Project 2: Secret Code Generator (Caesar Cipher)](#2-project-2-secret-code-generator-caesar-cipher)
-   - [Overview & Specifications](#21-overview--specifications)
-   - [Functional Description](#22-functional-description)
-   - [Complete Source Code](#23-complete-source-code)
+   - [Academic Context & Purpose](#21-academic-context--purpose)
+   - [Technical Specifications & Algorithmic Logic](#22-technical-specifications--algorithmic-logic)
+   - [Functional Description](#23-functional-description)
+   - [Complete Source Code](#24-complete-source-code)
 
 ---
 
 ## 1. Project 1: Personal Expense Tracker
 
-### 1.1 Overview & Specifications
-- **Module:** Mini Project — Assignment 3
-- **Primary Goal:** Allow users to log daily financial expenses, store them persistently in a JSON file, compute analytical summaries, manage entries (add, edit, delete), and generate visual distribution charts.
-- **Key Python Concepts Applied:**
-  - File I/O & JSON Serialization (`json.load`, `json.dump`)
-  - Error and Exception Handling (`try-except ValueError`)
-  - Date and Time Operations (`datetime.now`)
-  - Dictionary and List Data Structures
-  - Data Aggregation and Visualization (`matplotlib.pyplot`)
+### 1.1 Academic Context & Purpose
+- **Curriculum Module:** Mini Project — Assignment 3
+- **Developed by Me:** Penugonda Manoj Mithra
+- **Purpose of this Project:**
+  At this stage of my academics, my objective was to master state management, persistent storage, and data visualization in Python. I recognized the practical challenge students face in tracking daily expenses and managing a monthly budget. I developed this application to solve that problem: a clean, interactive command-line expense tracker that records daily spending, persists data safely in `expenses.json`, generates multi-dimensional financial summaries (total, by category, and daily over time), allows in-place record editing and deletion, and plots visual distribution charts using Matplotlib.
 
-### 1.2 Functional Description
+### 1.2 Technical Specifications & Architecture
+- **Language:** Python 3
+- **Primary Modules & Libraries:**
+  - `json`: Structured file serialization and deserialization
+  - `os`: File existence verification and system checks
+  - `datetime`: Automated transaction date generation and date handling
+  - `matplotlib.pyplot`: Categorical expense distribution pie charting
+- **Data Model:** A list of dictionaries, where each entry represents an expense:
+  ```python
+  {
+      "amount": float,
+      "category": str,
+      "date": str  # Format: YYYY-MM-DD
+  }
+  ```
 
-| Function | Parameters | Description |
-| :--- | :--- | :--- |
-| `load_expenses()` | None | Reads and deserializes expenses from `expenses.json`. If the file does not exist, returns an empty list `[]`. |
-| `save_expenses(expenses)` | `expenses: list` | Serializes the list of expense dictionaries into `expenses.json` with 4-space indentation. |
-| `add_expense(expenses)` | `expenses: list` | Accepts user inputs for amount, category, and date (defaulting to current date if left empty). Appends record and saves to file. |
-| `view_summary(expenses)` | `expenses: list` | Computes and displays the total expenditure, categorical breakdown, and daily spending over time in formatted currency. |
-| `delete_expense(expenses)` | `expenses: list` | Lists all expenses with indexed numbers and deletes the user-selected item, followed by updating storage. |
-| `edit_expense(expenses)` | `expenses: list` | Displays recorded expenses and allows modifying amount, category, or date for any existing record. |
-| `plot_graph(expenses)` | `expenses: list` | Calculates percentage contribution per category and renders an interactive pie chart via Matplotlib. |
-| `main()` | None | Orchestrates the command-line menu loop providing options 1 through 6. |
+### 1.3 Functional Description
 
-### 1.3 Complete Source Code
+| Function | Parameters | Return Type | Description |
+| :--- | :--- | :--- | :--- |
+| `load_expenses()` | None | `list` | Reads and deserializes expenses from `expenses.json`. Returns an empty list `[]` if the file does not exist. |
+| `save_expenses(expenses)` | `expenses: list` | `None` | Serializes the expense list to `expenses.json` with 4-space formatted indentation. |
+| `add_expense(expenses)` | `expenses: list` | `None` | Prompts user for expense amount, category, and date (defaults to today's date if omitted). Appends record and saves to file. |
+| `view_summary(expenses)` | `expenses: list` | `None` | Computes and outputs total expenditure, category-wise breakdown, and daily spending over time. |
+| `delete_expense(expenses)` | `expenses: list` | `None` | Displays indexed expenses and allows the user to select and delete an entry from storage. |
+| `edit_expense(expenses)` | `expenses: list` | `None` | Displays indexed records and allows the user to update amount, category, or date for any entry. |
+| `plot_graph(expenses)` | `expenses: list` | `None` | Aggregates categorical spending and renders an interactive pie chart via Matplotlib. |
+| `main()` | None | `None` | Main interactive CLI menu loop offering options 1 through 6 with robust input validation. |
+
+### 1.4 Complete Source Code
 
 ```python
 import json
@@ -211,24 +228,33 @@ if __name__ == "__main__":
 
 ## 2. Project 2: Secret Code Generator (Caesar Cipher)
 
-### 2.1 Overview & Specifications
-- **Module:** Quild Build Module
-- **Primary Goal:** Provide a modular cryptographic tool that encodes and decodes text using the Caesar Cipher substitution algorithm with custom numeric shifts.
-- **Key Python Concepts Applied:**
-  - ASCII manipulation via `ord()` and `chr()`
-  - Modulo arithmetic (`% 26`) for cyclic alphabet wrapping
-  - Case preservation (`isupper()`, `islower()`)
-  - Input validation and loop controls
+### 2.1 Academic Context & Purpose
+- **Curriculum Module:** Quild Build Module
+- **Developed by Me:** Penugonda Manoj Mithra
+- **Purpose of this Project:**
+  At this stage of my computer science academics, gaining a foundational understanding of cryptography and algorithmic information security was essential. I developed this application to implement and explore the mathematical principles of symmetric substitution ciphers through the Caesar Cipher. The project gave me hands-on practice in modular arithmetic, byte-level character encoding/decoding via ASCII tables, preserving case sensitivity, and building an interactive CLI tool with comprehensive input error handling.
 
-### 2.2 Functional Description
+### 2.2 Technical Specifications & Algorithmic Logic
+- **Language:** Python 3 (Pure standard library)
+- **Mathematical Formulations:**
+  - **Encryption Shift:**
+    $$E_n(x) = (x + n) \pmod{26}$$
+  - **Decryption Inverse Shift:**
+    $$D_n(x) = (x - n) \pmod{26}$$
+- **ASCII Offsets:**
+  - Uppercase alphabet base: `ord('A') = 65`
+  - Lowercase alphabet base: `ord('a') = 97`
+  - Non-alphabetic symbols (whitespace, punctuation, numbers) are passed through unaltered.
 
-| Function | Parameters | Description |
-| :--- | :--- | :--- |
-| `encode(message, shift)` | `message: str`, `shift: int` | Converts each alphabetical letter forward by `shift` places, wrapping around using `(ord(char) - base + shift) % 26 + base`. Non-alphabetic characters remain untouched. |
-| `decode(message, shift)` | `message: str`, `shift: int` | Inverses the shift operation by shifting letters backward by `shift` places: `(ord(char) - base - shift) % 26 + base`. |
-| `menu()` | None | Presents an interactive CLI menu loop allowing users to input messages, enter shift values, view encoded/decoded results, and handle invalid inputs gracefully. |
+### 2.3 Functional Description
 
-### 2.3 Complete Source Code
+| Function | Parameters | Return Type | Description |
+| :--- | :--- | :--- | :--- |
+| `encode(message, shift)` | `message: str`, `shift: int` | `str` | Encodes plaintext by shifting each alphabetical character forward by `shift` places along the alphabet while wrapping around using modulo 26. |
+| `decode(message, shift)` | `message: str`, `shift: int` | `str` | Inverses the shift operation by shifting characters backward by `shift` places modulo 26, restoring plaintext. |
+| `menu()` | None | `None` | Interactive CLI menu loop allowing the user to encode, decode, or exit, with input validation for numeric shifts. |
+
+### 2.4 Complete Source Code
 
 ```python
 # -------------------- FUNCTIONS --------------------

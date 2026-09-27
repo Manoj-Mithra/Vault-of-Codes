@@ -1,55 +1,63 @@
 # Secret Code Generator (Caesar Cipher)
 
 > **Quild Build Module**  
-> **Author:** Penugonda Manoj Mithra  
+> **Developed by:** Penugonda Manoj Mithra  
 > **Email:** penugondamanojmithra@gmail.com  
-> **Internship:** Python Programming at [VaultofCodes.in](https://vaultofcodes.in)
+> **Internship:** 1-Month Python Programming Internship at [VaultofCodes.in](https://vaultofcodes.in)  
+> **Academic Context:** Developed by me at this stage of my undergraduate computer science academics to explore the mathematical foundations of classical cryptography and secure data encoding.
 
 ---
 
-## 📌 Project Overview
+## 📌 Academic Context & Purpose
 
-The **Secret Code Generator** is a Python utility that implements the Caesar Cipher—one of the earliest and most widely known encryption techniques. It enables users to securely transform sensitive plaintext messages into obfuscated ciphertext using a numeric shift key, and symmetrically decode ciphertext back to original plaintext using the corresponding inverse shift.
+I developed this **Secret Code Generator** as part of my practical curriculum during the Vault of Codes internship to gain a deeper, applied understanding of cryptographic algorithms.
+
+At this stage of my academics, building foundational intuition around information security, character encoding tables, and modular arithmetic was a core learning goal. I designed this program to implement the **Caesar Cipher**—one of the foundational symmetric encryption algorithms in history—allowing users to convert readable plaintext into secure ciphertext and invert the transformation with mathematical precision.
+
+Through this project, I demonstrated:
+- Character-level ASCII manipulation utilizing `ord()` and `chr()`.
+- Cyclic wrap-around mechanics via modular arithmetic (`% 26`).
+- Preservation of original text casing (uppercase vs. lowercase) while keeping whitespace, punctuation, and numerals untouched.
+- Clean terminal user interaction with robust input validation protecting against malformed shift values.
 
 ---
 
-## 🧮 How It Works (Algorithmic Logic)
+## 🧮 Mathematical Logic Implemented by Me
 
-The Caesar Cipher performs a substitution where each letter in the plaintext is shifted a fixed number of positions down or up the alphabet.
+The Caesar Cipher algorithm shifts every alphabetic character by a user-defined numeric offset $n$:
 
-- **Encoding Formula:**  
+- **Encryption Formula:**  
   $$E_n(x) = (x + n) \pmod{26}$$
-- **Decoding Formula:**  
+- **Decryption Formula:**  
   $$D_n(x) = (x - n) \pmod{26}$$
 
 Where:
-- $x$ is the character index (0 for 'A'/'a' through 25 for 'Z'/'z').
-- $n$ is the numeric shift offset chosen by the user.
-- Character casing (uppercase vs. lowercase) is strictly preserved using ASCII base offsets (`ord('A')` / `ord('a')`).
-- Non-alphabetic symbols (numbers, punctuation, whitespace) are passed through unaltered.
+- $x$ represents the 0-indexed position of a letter relative to its ASCII alphabet base (`'A'` or `'a'`).
+- $n$ represents the integer shift key provided by the user.
+- Any non-alphabetic symbol (such as spaces, punctuation, or numbers) is retained without modification.
 
 ---
 
-## ✨ Key Features
+## ✨ Features Implemented by Me
 
-- **Bidirectional Transformation:** Seamlessly switch between encoding and decoding.
-- **Dynamic Shift Value:** Accepts any integer shift value (positive shifts, custom offsets).
-- **Preserved Formatting:** Whitespace, numbers, and punctuation are untouched.
-- **Robust Input Handling:** Graceful exception handling for non-integer shift inputs.
-- **Lightweight & Portable:** Uses pure native Python without external dependencies.
+- **Bidirectional Encoding & Decoding:** Users can encode plaintext into ciphertext and reverse the transformation seamlessly.
+- **Customizable Shift Key:** Accepts any positive integer shift value.
+- **Strict Formatting Preservation:** Spaces, numbers, and symbols remain identical to ensure readable outputs.
+- **Defensive Error Handling:** Input validation handles non-numeric shift values without program termination.
+- **Zero External Dependencies:** Built with pure Python standard library built-ins for maximum portability.
 
 ---
 
 ## 🛠️ Tech Stack & Requirements
 
 - **Language:** Python 3.x
-- **Dependencies:** None (Pure Python standard library / built-ins `ord`, `chr`)
+- **Libraries:** Pure Python built-ins (`ord`, `chr`, control flow)
 
 ---
 
 ## 🚀 How to Run
 
-1. Navigate to the project directory:
+1. Navigate to this project directory:
    ```bash
    cd 02_Secret_Code_Generator
    ```
@@ -63,9 +71,9 @@ Where:
 
 ---
 
-## 📊 Sample Output & Execution
+## 📊 My Test Execution Screenshot
 
-Below is an execution screenshot demonstrating menu navigation, message encoding, and decoding:
+Below is an execution screenshot captured from my testing of the encoding and decoding workflow:
 
 ### CLI Execution
 ![Secret Code Generator Output](../assets/secret_code_generator/cipher_cli_execution.png)
@@ -76,6 +84,6 @@ Below is an execution screenshot demonstrating menu navigation, message encoding
 
 ```
 02_Secret_Code_Generator/
-├── secret_code_generator.py    # Main program source code
+├── secret_code_generator.py    # Main Caesar cipher script developed by me
 └── README.md                   # Project documentation
 ```
